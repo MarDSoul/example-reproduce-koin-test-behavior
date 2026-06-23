@@ -1,0 +1,65 @@
+[versions]
+#build
+android-compileSdk = "36"
+android-minSdk = "24"
+android-targetSdk = "36"
+java-version = "25"
+#android
+agp = "9.0.1"
+androidx-activity = "1.13.0"
+#multiplatform
+jetbrains-compose = "1.10.3" #ver. 1.11.0 incomparable with androidx.tests
+jetbrains-compose-material = "1.10.0-alpha05"
+#kotlin
+kotlin = "2.3.21"
+kotlin-coroutines = "1.10.2"
+#koin
+koin = "4.2.1"
+#test
+androidx-test-runner = "1.7.0"
+
+[libraries]
+#android
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+#multiplatform
+compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "jetbrains-compose" }
+compose-ui = { module = "org.jetbrains.compose.ui:ui", version.ref = "jetbrains-compose" }
+compose-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "jetbrains-compose" }
+compose-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "jetbrains-compose-material" }
+compose-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "jetbrains-compose" }
+compose-uiToolingPreview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "jetbrains-compose" }
+compose-uiTooling = { module = "org.jetbrains.compose.ui:ui-tooling", version.ref = "jetbrains-compose" }
+#kotlin
+kotlin-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+#koin
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-coroutines = { module = "io.insert-koin:koin-core-coroutines" }
+koin-compose = { module = "io.insert-koin:koin-compose" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel" }
+#test
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test-runner"}
+compose-ui-test = { module = "androidx.compose.ui:ui-test-junit4-android", version.ref = "jetbrains-compose" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "jetbrains-compose" }
+koin-test = { module = "io.insert-koin:koin-test" }
+koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4" }
+koin-test-android = { module = "io.insert-koin:koin-android-test" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
+
+[bundles]
+compose = ["compose-runtime", "compose-foundation", "compose-ui", "compose-material3"]
+koin-core = ["koin-core", "koin-coroutines"]
+koin-ui = ["koin-compose", "koin-compose-viewmodel"]
+koin-test-android = ["koin-test", "koin-test-junit4", "koin-test-android"]
+
+[plugins]
+#android
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+androidLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+#compose
+composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "jetbrains-compose" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+#kotlin
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
