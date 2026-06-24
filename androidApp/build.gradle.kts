@@ -15,8 +15,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-//        testInstrumentationRunner = "com.example.test.TestRunner"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.test.TestRunner"
     }
     packaging {
         resources {
@@ -44,10 +43,10 @@ dependencies {
     androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(dependencies.platform(libs.koin.bom))
     androidTestImplementation(libs.bundles.koin.test.android) {
-//        exclude(group = "io.insert-koin", module = "koin-androidx-workmanager")
+        exclude(group = "io.insert-koin", module = "koin-androidx-workmanager")
     }
     androidTestImplementation(libs.bundles.koin.ui) {
-//        exclude(group = "io.insert-koin", module = "koin-androidx-workmanager")
+        exclude(group = "io.insert-koin", module = "koin-androidx-workmanager")
     }
     androidTestImplementation(libs.compose.ui.test)
     debugImplementation(libs.compose.ui.test.manifest)
